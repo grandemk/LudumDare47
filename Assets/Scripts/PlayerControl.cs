@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Timer
 {
@@ -31,7 +32,11 @@ public class PlayerControl : MonoBehaviour
 
     float oldHorizontalInput = 0f;
     float oldVerticalInput = 0f;
+    public Tilemap tilemap;
+    public Grid grid;
 
+    public TileControl tileCtrl;
+    
 
     void Update()
     {
@@ -59,16 +64,15 @@ public class PlayerControl : MonoBehaviour
         if (horizontalInput != 0f && verticalInput != 0f)
             verticalInput = 0f;
 
+
         Vector3 direction = new Vector3(ComputeMove(horizontalInput), ComputeMove(verticalInput), 0);
-        transform.Translate(direction);
+        var curTile = tilemap.GetTile(tilemap.WorldToCell(transform.position + direction));
+        Debug.Log(curTile);
+        if(tileCtrl.IsTraversable(curTile))
+            transform.Translate(direction);
         timer.Restart(inputSeparationTime);
 
         oldHorizontalInput = horizontalInput;
         oldVerticalInput = verticalInput;
-    }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        Debug.Log("Collision");
     }
 }

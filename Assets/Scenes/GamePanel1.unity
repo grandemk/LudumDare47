@@ -893,6 +893,7 @@ GameObject:
   - component: {fileID: 1556073034}
   - component: {fileID: 1556073033}
   - component: {fileID: 1556073035}
+  - component: {fileID: 1556073036}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -976,7 +977,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e2d39b628a2d34ba132916e7f9a675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputSeparationTime: 0.3
+  inputSeparationTime: 0.15
+  tilemap: {fileID: 968498466}
+  grid: {fileID: 845143106}
+  tileCtrl: {fileID: 1556073036}
+--- !u!114 &1556073036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556073032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e1e71fcc7f2ea498522f501011890c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 11400000, guid: 40d633dc169423149b187ef292d7414f, type: 2}
+  tileEnvs:
+  - {fileID: 11400000, guid: 578e415fb1d638244b8646eed9b53c6a, type: 2}
 --- !u!1 &1638431408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,7 +1336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AssetsPPU: 32
+  m_AssetsPPU: 16
   m_RefResolutionX: 320
   m_RefResolutionY: 180
   m_UpscaleRT: 0
