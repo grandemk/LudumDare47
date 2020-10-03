@@ -68,6 +68,10 @@ public class PlayerControl : MonoBehaviour
         Vector3 direction = new Vector3(ComputeMove(horizontalInput), ComputeMove(verticalInput), 0);
         var curTile = tilemap.GetTile(tilemap.WorldToCell(transform.position + direction));
         Debug.Log(curTile);
+        if(tileCtrl.IsControlPoint(curTile))
+        {
+            Debug.Log("Is on Control Point");
+        }
         if(tileCtrl.IsTraversable(curTile))
             transform.Translate(direction);
         timer.Restart(inputSeparationTime);

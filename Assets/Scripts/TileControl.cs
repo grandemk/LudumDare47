@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 public class TileEnv : ScriptableObject
 {
     public bool traversable;
+    public bool controlPoint;
 };
 
 public class TileControl : MonoBehaviour 
@@ -21,6 +22,18 @@ public class TileControl : MonoBehaviour
         {
             tilesData[tiles[i]] = tileEnvs[i];
         }
+
+    }
+
+    public bool IsControlPoint(TileBase tile)
+    {
+        if (tile == null)
+            return false;
+
+        TileEnv tileEnv;
+        if(tilesData.TryGetValue(tile, out tileEnv))
+            return tileEnv.controlPoint;
+        return false;
 
     }
 
