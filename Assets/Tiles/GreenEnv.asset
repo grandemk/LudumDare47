@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TileEnv
   traversable: 1
   controlPoint: 1
+  isTriggered: 1
